@@ -27,6 +27,24 @@ header .logo img {
 header .logo img:hover {
   transform: scale(1.05);
 }
+
+/* Redes sociales */
+header .social {
+  display: flex;
+  gap: 15px;
+}
+
+header .social img {
+  height: 30px;
+  width: 30px;
+  filter: brightness(0) invert(1); /* íconos blancos */
+  transition: transform 0.3s ease;
+}
+
+header .social img:hover {
+  transform: scale(1.2);
+  filter: brightness(0) invert(0); /* cambia a negro al pasar el mouse */
+}
 header h1 {
   font-size: 1.8em;
   margin: 0;
