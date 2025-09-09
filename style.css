@@ -1,0 +1,12 @@
+/* Personaliza estilos extra */
+body {
+  scroll-behavior: smooth;
+}
+
+header {
+  background: linear-gradient(to right, #dc2626, #b91c1c);
+}
+
+footer {
+  font-size: 0.9rem;
+}

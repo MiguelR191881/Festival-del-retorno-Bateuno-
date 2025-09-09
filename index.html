@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ferias y Fiestas</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 font-sans">
+  <!-- Encabezado -->
+  <header class="bg-red-600 text-white p-6 text-center shadow-lg">
+    <h1 class="text-3xl font-bold">Ferias y Fiestas 2025</h1>
+    <p class="text-lg">Calendario de eventos y actividades</p>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="max-w-4xl mx-auto p-6">
+    <h2 class="text-2xl font-semibold mb-4">Próximos Eventos</h2>
+    <div id="eventos" class="grid md:grid-cols-2 gap-6"></div>
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="bg-gray-800 text-white p-4 text-center mt-8">
+    <p>&copy; 2025 Ferias y Fiestas - Página informativa</p>
+  </footer>
+
+  <!-- Script para cargar eventos -->
+  <script>
+    fetch("eventos.json")
+      .then(res => res.json())
+      .then(data => {
+        const contenedor = document.getElementById("eventos");
+        data.forEach(evento => {
+          const card = `
+            <div class="bg-white rounded-xl shadow p-4 hover:shadow-lg transition">
+              <h3 class="text-xl font-bold text-red-600">${evento.titulo}</h3>
+              <p class="text-gray-700"><b>📅 Fecha:</b> ${evento.fecha}</p>
+              <p class="mt-2">${evento.descripcion}</p>
+            </div>
+          `;
+          contenedor.innerHTML += card;
+        });
+      })
+      .catch(err => {
+        document.getElementById("eventos").innerHTML = 
+          "<p class='text-red-600'>No se pudieron cargar los eventos.</p>";
+      });
+  </script>
+</body>
+</html>
