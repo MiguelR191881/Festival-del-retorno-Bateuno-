@@ -25,7 +25,7 @@ header .logo img {
 }
 
 header .logo img {
-  height: 45px; /* tamaño más pequeño del logo */
+  height: 120px; /* tamaño más pequeño del logo */
   margin-right: 15px;
   border-radius: 6px; /* bordes redondeados opcionales */
 }
