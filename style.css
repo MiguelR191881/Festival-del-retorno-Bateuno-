@@ -1,70 +1,84 @@
 /* Estilos generales */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  background: #f9f9f9;
+  background: #f4f6f9;
   color: #333;
 }
 
 /* Header */
 header {
-  background: linear-gradient(90deg, #b30000, #e60000);
+  background: linear-gradient(90deg, #b30000, #e63946);
   color: white;
-  padding: 15px 25px;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
+header .logo {
+  display: flex;
+  align-items: center;
+}
+
 header .logo img {
-  height: 40px;
+  height: 45px; /* tamaño más pequeño del logo */
   margin-right: 15px;
+  border-radius: 6px; /* bordes redondeados opcionales */
 }
 
 header h1 {
-  font-size: 1.8em;
+  font-size: 1.6em;
   margin: 0;
 }
 
-
-/* Títulos */
+/* Título */
 main h2 {
   text-align: center;
   margin: 20px 0;
-  color: #004080;
+  color: #b30000;
+  font-size: 1.8em;
 }
 
 /* Contenedor de eventos */
 .eventos-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
   padding: 20px;
+  max-width: 1000px;
+  margin: auto;
 }
 
-/* Tarjetas de eventos */
+/* Tarjetas */
 .card {
   background: white;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease-in-out;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
 }
 
 .card h3 {
-  color: #004080;
+  color: #e63946;
+  margin-top: 0;
+}
+
+.card p {
+  margin: 5px 0;
 }
 
 /* Footer */
 footer {
-  background: #004080;
+  background: #333;
   color: white;
   text-align: center;
-  padding: 10px;
-  margin-top: 20px;
+  padding: 15px;
+  margin-top: 30px;
+  font-size: 0.9em;
 }
