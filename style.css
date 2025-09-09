@@ -20,11 +20,12 @@ header .logo {
   display: flex;
   align-items: center;
 }
-
 header .logo img {
-  height: 45px; /* tamaño más pequeño del logo */
+  height: 70px;   /* ajusta el tamaño (antes estaba gigante) */
+  width: auto;    /* mantiene proporciones */
   margin-right: 15px;
-  border-radius: 6px; /* bordes redondeados opcionales */
+  border-radius: 6px;
+  object-fit: contain; /* hace que nunca se deforme */
 }
 
 header h1 {
