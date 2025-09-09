@@ -17,17 +17,15 @@ header {
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 header .logo img {
-  height: 200px; /* antes estaba en 80px */
+  height: 100px;   /* ajusta aquí el tamaño que prefieras */
   width: auto;
   margin-right: 20px;
   border-radius: 10px;
+  transition: transform 0.3s ease;
 }
 
-
-header .logo img {
-  height: 120px; /* tamaño más pequeño del logo */
-  margin-right: 15px;
-  border-radius: 6px; /* bordes redondeados opcionales */
+header .logo img:hover {
+  transform: scale(1.05);
 }
 header h1 {
   font-size: 1.8em;
