@@ -94,3 +94,30 @@ footer {
   color: white;
   margin-top: 40px;
 }
+/* Tarjetas de eventos */
+.evento-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+  border-top: 5px solid #ff6600;
+}
+
+.evento-card h3 {
+  font-size: 1.3em;
+  color: #d84315;
+  margin-bottom: 10px;
+}
+
+.evento-card p {
+  font-size: 0.95em;
+  color: #333;
+  margin: 5px 0;
+}
+
+.evento-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
