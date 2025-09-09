@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Encabezado -->
+  <!-- Encabezado con logo -->
   <header>
     <div class="logo">
       <img src="logo.png" alt="Logo Festival">
@@ -15,34 +15,36 @@
     </div>
   </header>
 
-  <!-- Sección de eventos -->
+  <!-- Contenedor principal -->
   <main>
-    <h2>Próximos eventos</h2>
-   <div class="eventos-container" id="eventos">
+    <h2>Eventos del Festival</h2>
+    <div id="eventos" class="eventos-container">
+      <!-- Aquí se cargan los eventos automáticamente -->
+    </div>
   </main>
 
-  <!-- Footer -->
   <footer>
-    <p>© 2025 Festival del Retorno - Bateuno</p>
+    <p>&copy; 2025 Festival del Retorno - Bateuno</p>
   </footer>
 
-  <!-- Script -->
   <script>
-    fetch("eventos.json")
-      .then(response => response.json())
-      .then(data => {
-        const listaEventos = document.getElementById("lista-eventos");
-        data.forEach(evento => {
-          const card = document.createElement("div");
-          card.classList.add("evento-card");
-          card.innerHTML = `
-            <h3>${evento.nombre}</h3>
-            <p><strong>Fecha:</strong> ${evento.fecha}</p>
-            <p>${evento.descripcion}</p>
-          `;
-          listaEventos.appendChild(card);
-        });
+    async function cargarEventos() {
+      const respuesta = await fetch("eventos.json");
+      const eventos = await respuesta.json();
+      const contenedor = document.getElementById("eventos");
+
+      eventos.forEach(e => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <h3>${e.titulo}</h3>
+          <p><strong>Fecha:</strong> ${e.fecha}</p>
+          <p>${e.descripcion}</p>
+        `;
+        contenedor.appendChild(card);
       });
+    }
+    cargarEventos();
   </script>
 </body>
 </html>
