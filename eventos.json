@@ -1,17 +1,18 @@
-[
-  {
-    "titulo": "Festival de Danzas",
-    "fecha": "18 de agosto 2025",
-    "descripcion": ""
-  },
-  {
-    "titulo": "Concierto Central",
-    "fecha": "14 de septiembre 2025",
-    "descripcion": "Presentación de artistas nacionales e internacionales en la plaza central."
-  },
-  {
-    "titulo": "Festival Gastronómico",
-    "fecha": "15 de septiembre 2025",
-    "descripcion": "Muestra de comida típica de la región con más de 50 expositores."
-  }
-]
+<main>
+  <div class="event-card">
+    <h2>Festival de Danzas</h2>
+    <p><strong>Fecha:</strong> 13 de agosto 2025</p>
+  </div>
+
+  <div class="event-card">
+    <h2>Concierto Central</h2>
+    <p><strong>Fecha:</strong> 14 de agosto 2025</p>
+    <p>Presentación de artistas nacionales e internacionales en la plaza central.</p>
+  </div>
+
+  <div class="event-card">
+    <h2>Festival Gastronómico</h2>
+    <p><strong>Fecha:</strong> 15 de agosto 2025</p>
+    <p>Muestra de comida típica de la región con más de 50 expositores.</p>
+  </div>
+</main>
