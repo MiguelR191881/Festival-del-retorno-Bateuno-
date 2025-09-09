@@ -17,12 +17,12 @@ header {
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 header .logo img {
-  height: 70px;   /* ajusta el tamaño (antes estaba gigante) */
-  width: auto;    /* mantiene proporciones */
-  margin-right: 15px;
-  border-radius: 6px;
-  object-fit: contain; /* hace que nunca se deforme */
+  height: 120px; /* antes estaba en 80px */
+  width: auto;
+  margin-right: 20px;
+  border-radius: 10px;
 }
+
 
 header .logo img {
   height: 120px; /* tamaño más pequeño del logo */
