@@ -54,34 +54,43 @@ main h2 {
 }
 
 /* Tarjetas */
+#lista-eventos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
 .card {
   background: white;
-  padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
 }
 
 .card h3 {
-  color: #e63946;
   margin-top: 0;
+  color: #ff512f;
 }
 
 .card p {
   margin: 5px 0;
+  font-size: 15px;
+  color: #444;
 }
 
 /* Footer */
 footer {
-  background: #333;
-  color: white;
   text-align: center;
   padding: 15px;
-  margin-top: 30px;
-  font-size: 0.9em;
+  background: #333;
+  color: white;
+  margin-top: 40px;
 }
