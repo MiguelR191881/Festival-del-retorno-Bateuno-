@@ -22,7 +22,7 @@ header .logo {
   align-items: center;
 }
 header .logo img {
-  height: 70px;   /* ajusta el tamaño (antes estaba gigante) */
+  height: 100px;   /* ajusta el tamaño (antes estaba gigante) */
   width: auto;    /* mantiene proporciones */
   margin-right: 15px;
   border-radius: 6px;
