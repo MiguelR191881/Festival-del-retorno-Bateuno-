@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Festival del Retorno Bateuno</title>
+  <title>Festival del Retorno - Bateuno</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Encabezado con logo -->
+  <!-- Encabezado -->
   <header>
     <div class="logo">
       <img src="logo.png" alt="Logo Festival">
@@ -15,36 +15,34 @@
     </div>
   </header>
 
-  <!-- Contenedor principal -->
+  <!-- Sección de eventos -->
   <main>
-    <h2>Proximos eventos</h2>
+    <h2>Próximos eventos</h2>
     <div id="lista-eventos" class="eventos-container"></div>
-      <!-- Aquí se cargan los eventos automáticamente -->
-    </div>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Festival del Retorno - Bateuno</p>
+    <p>© 2025 Festival del Retorno - Bateuno</p>
   </footer>
 
+  <!-- Script -->
   <script>
-    async function cargarEventos() {
-      const respuesta = await fetch("eventos.json");
-      const eventos = await respuesta.json();
-      const contenedor = document.getElementById("eventos");
-
-      eventos.forEach(e => {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.innerHTML = `
-          <h3>${e.titulo}</h3>
-          <p><strong>Fecha:</strong> ${e.fecha}</p>
-          <p>${e.descripcion}</p>
-        `;
-        contenedor.appendChild(card);
+    fetch("eventos.json")
+      .then(response => response.json())
+      .then(data => {
+        const listaEventos = document.getElementById("lista-eventos");
+        data.forEach(evento => {
+          const card = document.createElement("div");
+          card.classList.add("evento-card");
+          card.innerHTML = `
+            <h3>${evento.nombre}</h3>
+            <p><strong>Fecha:</strong> ${evento.fecha}</p>
+            <p>${evento.descripcion}</p>
+          `;
+          listaEventos.appendChild(card);
+        });
       });
-    }
-    cargarEventos();
   </script>
 </body>
 </html>
