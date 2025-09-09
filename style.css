@@ -10,9 +10,10 @@ body {
 header {
   background: linear-gradient(90deg, #b30000, #e63946);
   color: white;
-  padding: 10px 20px;
+  padding: 10px 30px;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
@@ -29,8 +30,9 @@ header .logo img {
 }
 
 header h1 {
-  font-size: 1.6em;
+  font-size: 1.8em;
   margin: 0;
+  font-weight: bold;
 }
 
 /* Título */
