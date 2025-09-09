@@ -1,17 +1,17 @@
 [
-    {
-        "nombre": "Festival de Danzas",
-        "fecha": "13 de agosto 2025",
-        "descripcion": "Muestra de bailes típicos de la región con grupos locales e invitados especiales."
-    },
-    {
-        "nombre": "Concierto Central",
-        "fecha": "14 de agosto 2025",
-        "descripcion": "Presentación de artistas nacionales e internacionales en la plaza central."
-    },
-    {
-        "nombre": "Festival Gastronómico",
-        "fecha": "15 de agosto 2025",
-        "descripcion": "Más de 50 expositores con platos típicos de la región y degustaciones para el público."
-    }
+  {
+    "titulo": "Desfile Inaugural",
+    "fecha": "12 de septiembre 2025",
+    "descripcion": "Gran desfile por las calles principales con comparsas y bandas musicales."
+  },
+  {
+    "titulo": "Concierto Central",
+    "fecha": "14 de septiembre 2025",
+    "descripcion": "Presentación de artistas nacionales e internacionales en la plaza central."
+  },
+  {
+    "titulo": "Festival Gastronómico",
+    "fecha": "15 de septiembre 2025",
+    "descripcion": "Muestra de comida típica de la región con más de 50 expositores."
+  }
 ]
