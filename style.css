@@ -1,20 +1,20 @@
 /* Estilos generales */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  background: #f4f6f9;
+  font-family: 'Poppins', sans-serif;
+  background: #fff8f0;
   color: #333;
 }
 
 /* Header */
 header {
-  background: linear-gradient(90deg, #b30000, #e63946);
+  background: linear-gradient(90deg, #ff4d4d, #ff9900);
   color: white;
-  padding: 10px 30px;
+  padding: 15px 40px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 header .logo {
@@ -22,17 +22,17 @@ header .logo {
   align-items: center;
 }
 header .logo img {
-  height: 100px;   /* ajusta el tamaño (antes estaba gigante) */
-  width: auto;    /* mantiene proporciones */
-  margin-right: 15px;
-  border-radius: 6px;
-  object-fit: contain; /* hace que nunca se deforme */
+  height: 80px;
+  width: auto;
+  margin-right: 20px;
+  border-radius: 10px;
 }
 
 header h1 {
-  font-size: 1.8em;
+  font-size: 2em;
   margin: 0;
-  font-weight: bold;
+  font-weight: 700;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
 
 /* Título */
