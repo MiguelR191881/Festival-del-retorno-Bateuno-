@@ -17,8 +17,15 @@ header {
   padding: 10px 20px;
 }
 
-header .logo img {
-  height: 50px;
+header .logo {
+  height: 120px;
+  width: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+header .logo:hover {
+  transform: scale(1.05);
 }
 
 header .social-icons img {
