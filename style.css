@@ -1,194 +1,128 @@
-/* Estilos generales */
+/* ====== ESTILOS GENERALES ====== */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Arial, sans-serif;
   margin: 0;
-  background: #f4f6f9;
+  padding: 0;
+  background: #f4f4f9;
   color: #333;
 }
 
-/* Header */
+/* ====== HEADER ====== */
 header {
-  background: linear-gradient(90deg, #b30000, #e63946);
-  color: white;
-  padding: 10px 30px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-}
-
-header .logo {
-  height: 80px;
-  width: auto;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
-}
-
-header .logo:hover {
-  transform: scale(1.05);
-}
-
-/* Redes sociales */
-.social-icons {
-  display: flex;
-  gap: 15px;
   align-items: center;
+  background: #222;
+  color: #fff;
+  padding: 10px 20px;
 }
 
-.social-icons img {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  background: white;
-  padding: 5px;
-  transition: transform 0.2s, background 0.3s;
+header .logo img {
+  height: 50px;
 }
 
-.social-icons img:hover {
-  transform: scale(1.2);
-  background: #ffd700;
-}
-
-/* Título */
-main h1 {
-  text-align: center;
-  margin: 20px 0;
-  color: #b30000;
-  font-size: 2em;
-}
-
-/* Contenedor de eventos */
-.eventos-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  padding: 20px;
-  max-width: 1000px;
-  margin: auto;
-}
-
-/* Tarjetas */
-.event-card {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+header .social-icons img {
+  width: 30px;
+  margin-left: 10px;
   cursor: pointer;
 }
 
-.event-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+/* ====== MAIN ====== */
+main {
+  padding: 20px;
+  text-align: center;
 }
 
-.event-card h2 {
-  color: #e63946;
+main h1 {
+  margin-bottom: 20px;
+}
+
+/* ====== CONTENEDOR DE EVENTOS ====== */
+.eventos-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* ====== TARJETAS ====== */
+.card {
+  background: #fff;
+  padding: 20px;
+  width: 250px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card h3 {
   margin-top: 0;
+  color: #222;
 }
 
-.event-card p {
-  margin: 5px 0;
+.card p {
+  margin: 6px 0;
+  font-size: 14px;
 }
 
-/* Modal */
+/* ====== FOOTER ====== */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #222;
+  color: #fff;
+  margin-top: 20px;
+}
+
+/* ====== MODAL ====== */
 .modal {
   display: none;
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.6);
+  z-index: 1000;
+  left: 0; 
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  background: rgba(0,0,0,0.5);
   justify-content: center;
   align-items: center;
 }
 
 .modal-content {
-  background: white;
+  background: #fff;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 12px;
+  width: 90%;
   max-width: 400px;
   text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.modal-content h2 {
+  margin-top: 0;
 }
 
 .modal-content button {
   margin: 10px;
   padding: 10px 20px;
   border: none;
-  background: #e63946;
-  color: white;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
+  font-size: 16px;
 }
 
 .modal-content button:hover {
-  background: #b30000;
+  opacity: 0.9;
 }
 
-/* Footer */
-footer {
-  background: #333;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  margin-top: 30px;
-  font-size: 0.9em;
-}
-
-
-/* --- MODAL --- */
-.modal {
-  display: none; /* oculto por defecto */
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-  max-width: 400px;
-  width: 80%;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-}
-
-.cerrar {
+.close {
   float: right;
-  font-size: 1.5em;
+  font-size: 22px;
+  font-weight: bold;
   cursor: pointer;
-  color: #b30000;
 }
-
-.opciones {
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-around;
-}
-
-.opciones button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1em;
-}
-
-.btn-si {
-  background: #28a745;
-  color: white;
-}
-
-.btn-no {
-  background: #dc3545;
-  color: white;
-}
-
-.btn-si:hover { background: #218838; }
-.btn-no:hover { background: #c82333; }
-
