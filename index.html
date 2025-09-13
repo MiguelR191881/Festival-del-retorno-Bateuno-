@@ -1,114 +1,106 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eventos Especiales</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventos Especiales</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- HEADER CON LOGO Y REDES -->
-    <header>
-        <div class="logo">
-            <img src="logo.png" alt="Logo del Evento" class="logo-img">
+  <!-- HEADER CON LOGO Y REDES -->
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Logo del Evento" class="logo-img">
+      <h1>Festival del Retorno - Bateuno</h1>
+    </div>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/share/19hPzTEQk9/" target="_blank">
+        <img src="facebook.png" alt="Facebook">
+      </a>
+      <a href="https://www.instagram.com/festivalbateuno?igsh=MWlqcHNyOTl4eG5zdA==" target="_blank">
+        <img src="Instagram.png" alt="Instagram">
+      </a>
+      <a href="mailto:festivalbateuno1@gmail.com">
+        <img src="gmail.png" alt="Correo electrónico">
+      </a>
+    </div>
+  </header>
 
-            <h1>Festival del Retorno - Bateuno</h1>
-        </div>
-        <div class="social-icons">
-            <a href="https://www.facebook.com/share/19hPzTEQk9/" target="_blank">
-                <img src="facebook.png" alt="Facebook">
-            </a>
-            <a href="https://www.instagram.com/festivalbateuno?igsh=MWlqcHNyOTl4eG5zdA==" target="_blank">
-                <img src="Instagram.png" alt="Instagram">
-            </a>
-            <a href="mailto:festivalbateuno1@gmail.com">
-                <img src="gmail.png" alt="Correo electrónico">
-            </a>
-        </div>
-    </header>
+  <!-- CONTENEDOR DE EVENTOS -->
+  <main>
+    <h2>Próximos Eventos</h2>
+    <div class="eventos-container" id="eventos">
+      <!-- Los eventos se cargarán dinámicamente desde eventos.json -->
+    </div>
+  </main>
 
-    <!-- CONTENEDOR DE EVENTOS -->
-    <main>
-        <h2>Próximos Eventos</h2>
-        <div class="eventos-container" id="eventos">
-            <!-- Los eventos se cargarán dinámicamente desde eventos.json -->
-        </div>
-    </main>
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Eventos Especiales. Todos los derechos reservados.</p>
+  </footer>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2025 Eventos Especiales. Todos los derechos reservados.</p>
-    </footer>
+  <!-- MODAL DE GOOGLE FORM -->
+  <div id="modalAsistencia" class="modal">
+    <div class="modal-content">
+      <span class="cerrar">&times;</span>
+      <h2 id="tituloEvento"></h2>
 
-<!-- MODAL DE CONFIRMACIÓN -->
-<div id="modalAsistencia" class="modal">
-  <div class="modal-content">
-    <span class="cerrar">&times;</span>
-    <h2 id="tituloEvento"></h2>
-    <p>¿Confirmas tu asistencia a este evento?</p>
-    <div class="opciones">
-      <button class="btn-si">✅ Sí, asistiré</button>
-      <button class="btn-no">❌ No podré asistir</button>
+      <!-- Aquí se insertará el formulario -->
+      <iframe 
+        id="formAsistencia"
+        src="" 
+        width="100%" 
+        height="500" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0">
+        Cargando…
+      </iframe>
     </div>
   </div>
-</div>
-    
-    <!-- SCRIPT PARA CARGAR EVENTOS -->
-    <script>
-        // Variables del modal
-        const modal = document.getElementById("modalAsistencia");
-        const tituloEvento = document.getElementById("tituloEvento");
-        const cerrarModal = document.querySelector(".cerrar");
-        const btnSi = document.querySelector(".btn-si");
-        const btnNo = document.querySelector(".btn-no");
 
-        // Mostrar modal al hacer click en un evento
-        function abrirModal(evento) {
-            tituloEvento.textContent = evento.titulo;
-            modal.style.display = "flex";
-        }
+  <!-- SCRIPT PARA CARGAR EVENTOS -->
+  <script>
+    const modal = document.getElementById("modalAsistencia");
+    const tituloEvento = document.getElementById("tituloEvento");
+    const cerrarModal = document.querySelector(".cerrar");
+    const formAsistencia = document.getElementById("formAsistencia");
 
-        // Cerrar modal
-        cerrarModal.onclick = () => modal.style.display = "none";
-        window.onclick = e => { if (e.target === modal) modal.style.display = "none"; }
+    // Tu enlace base de Google Forms (iframe)
+    const linkGoogleForm = "https://docs.google.com/forms/d/e/TU-LINK-DE-GOOGLE-FORMS/viewform?embedded=true";
 
-        // Acciones de los botones
-        btnSi.onclick = () => {
-            alert(`¡Genial! Has confirmado tu asistencia a: ${tituloEvento.textContent}`);
-            modal.style.display = "none";
-        };
+    // Abrir modal al hacer click en un evento
+    function abrirModal(evento) {
+      tituloEvento.textContent = evento.titulo;
+      formAsistencia.src = linkGoogleForm; // siempre el mismo form
+      modal.style.display = "flex";
+    }
 
-        btnNo.onclick = () => {
-            alert(`Lamentamos que no puedas asistir a: ${tituloEvento.textContent}`);
-            modal.style.display = "none";
-        };
-        
+    // Cerrar modal
+    cerrarModal.onclick = () => modal.style.display = "none";
+    window.onclick = e => { if (e.target === modal) modal.style.display = "none"; }
 
-        // Cargar eventos
-        fetch('eventos.json')
-            .then(response => response.json())
-            .then(data => {
-                const contenedor = document.getElementById('eventos');
-                contenedor.innerHTML = "";
-                data.forEach(evento => {
-                    const div = document.createElement('div');
-                    div.classList.add('event-card');
-                    div.innerHTML = `
-                        <h2>${evento.titulo}</h2>
-                        <p><strong>Fecha:</strong> ${evento.fecha}</p>
-                        <p>${evento.descripcion}</p>
-                    `;
-                    // Click → abrir modal
-                    div.onclick = () => abrirModal(evento);
-                    contenedor.appendChild(div);
-                });
-            })
-            .catch(error => console.error("Error cargando los eventos:", error));
-    </script>
-        
-    </script>
-
-
+    // Cargar eventos dinámicamente
+    fetch('eventos.json')
+      .then(response => response.json())
+      .then(data => {
+        const contenedor = document.getElementById('eventos');
+        contenedor.innerHTML = "";
+        data.forEach(evento => {
+          const div = document.createElement('div');
+          div.classList.add('event-card');
+          div.innerHTML = `
+            <h2>${evento.titulo}</h2>
+            <p><strong>Fecha:</strong> ${evento.fecha}</p>
+            <p>${evento.descripcion}</p>
+          `;
+          div.onclick = () => abrirModal(evento);
+          contenedor.appendChild(div);
+        });
+      })
+      .catch(error => console.error("Error cargando los eventos:", error));
+  </script>
 </body>
 </html>
+
