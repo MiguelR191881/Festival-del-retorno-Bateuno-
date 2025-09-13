@@ -105,3 +105,62 @@ footer {
   margin-top: 30px;
   font-size: 0.9em;
 }
+
+/* --- MODAL --- */
+.modal {
+  display: none; /* oculto por defecto */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 400px;
+  width: 80%;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.cerrar {
+  float: right;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #b30000;
+}
+
+.opciones {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.opciones button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.btn-si {
+  background: #28a745;
+  color: white;
+}
+
+.btn-no {
+  background: #dc3545;
+  color: white;
+}
+
+.btn-si:hover { background: #218838; }
+.btn-no:hover { background: #c82333; }
+
