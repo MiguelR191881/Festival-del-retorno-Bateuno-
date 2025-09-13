@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Festival del Retorno - Bateuno</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos Especiales</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Encabezado con logo -->
-  <header>
-  <div class="logo">
-    <img src="logo.png" alt="Logo Festival">
-    <h1>Festival del Retorno - Bateuno</h1>
-  </div>
+
+    <!-- HEADER CON LOGO -->
+    <header>
+        <img src="logo.png" alt="Logo del Evento">
+    </header>
+
+    <!-- CONTENEDOR DE EVENTOS -->
+    <main>
+        <h1>Próximos Eventos</h1>
+        <div class="eventos-container" id="eventos">
+            <!-- Los eventos se cargarán dinámicamente desde eventos.json -->
+        </div>
+    </main>
+
 
   <div class="social-icons">
     <a href="https://www.facebook.com/share/19hPzTEQk9/" target="_blank">
@@ -27,38 +35,31 @@
   </div>
 </header>
 
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 Eventos Especiales. Todos los derechos reservados.</p>
+    </footer>
 
+    <!-- SCRIPT PARA CARGAR EVENTOS -->
+    <script>
+        fetch('eventos.json')
+            .then(response => response.json())
+            .then(data => {
+                const contenedor = document.getElementById('eventos');
+                contenedor.innerHTML = "";
+                data.forEach(evento => {
+                    const div = document.createElement('div');
+                    div.classList.add('event-card');
+                    div.innerHTML = `
+                        <h2>${evento.nombre}</h2>
+                        <p><strong>Fecha:</strong> ${evento.fecha}</p>
+                        <p>${evento.descripcion}</p>
+                    `;
+                    contenedor.appendChild(div);
+                });
+            })
+            .catch(error => console.error("Error cargando los eventos:", error));
+    </script>
 
-  <!-- Contenedor principal -->
-  <main>
-    <h2>Eventos del Festival</h2>
-    <div id="eventos" class="eventos-container">
-      <!-- Aquí se cargan los eventos automáticamente -->
-    </div>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Festival del Retorno - Bateuno</p>
-  </footer>
-
-  <script>
-    async function cargarEventos() {
-      const respuesta = await fetch("eventos.json");
-      const eventos = await respuesta.json();
-      const contenedor = document.getElementById("eventos");
-
-      eventos.forEach(e => {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.innerHTML = `
-          <h3>${e.titulo}</h3>
-          <p><strong>Fecha:</strong> ${e.fecha}</p>
-          <p>${e.descripcion}</p>
-        `;
-        contenedor.appendChild(card);
-      });
-    }
-    cargarEventos();
-  </script>
 </body>
 </html>
