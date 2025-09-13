@@ -1,11 +1,9 @@
-/* -------------------
-   RESETEO BÁSICO
-------------------- */
+/* ===== RESETEO ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 body {
@@ -14,11 +12,9 @@ body {
   line-height: 1.6;
 }
 
-/* -------------------
-   HEADER
-------------------- */
+/* ===== HEADER ===== */
 header {
-  background: linear-gradient(135deg, #006400, #228b22);
+  background: #b30000; /* Rojo festival */
   color: white;
   padding: 15px 20px;
   display: flex;
@@ -30,18 +26,17 @@ header {
 header .logo {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 }
 
 header .logo-img {
   width: 60px;
   height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 header h1 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 header .social-icons {
@@ -50,8 +45,9 @@ header .social-icons {
 }
 
 header .social-icons img {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
   transition: transform 0.2s ease;
 }
 
@@ -59,68 +55,63 @@ header .social-icons img:hover {
   transform: scale(1.2);
 }
 
-/* -------------------
-   MAIN Y EVENTOS
-------------------- */
+/* ===== MAIN Y EVENTOS ===== */
 main {
-  padding: 30px 20px;
+  padding: 25px 20px;
   text-align: center;
 }
 
 main h2 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-bottom: 20px;
-  color: #006400;
+  color: #b30000;
 }
 
 .eventos-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
+  gap: 15px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 .event-card {
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
 }
 
 .event-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
 }
 
 .event-card h2 {
-  font-size: 1.3rem;
-  margin-bottom: 10px;
-  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #222;
 }
 
 .event-card p {
-  margin: 6px 0;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #555;
+  margin: 5px 0;
 }
 
-/* -------------------
-   FOOTER
-------------------- */
+/* ===== FOOTER ===== */
 footer {
-  background: #006400;
+  background: #b30000;
   color: white;
   text-align: center;
   padding: 15px;
   margin-top: 30px;
+  font-size: 0.9rem;
 }
 
-/* -------------------
-   MODAL
-------------------- */
+/* ===== MODAL ===== */
 .modal {
   display: none;
   position: fixed;
@@ -136,26 +127,24 @@ footer {
 
 .modal-content {
   background: #fff;
-  border-radius: 12px;
+  border-radius: 10px;
   padding: 20px;
   width: 90%;
-  max-width: 700px;
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
   text-align: center;
+  position: relative;
 }
 
 .modal-content h2 {
   margin-bottom: 15px;
-  color: #228b22;
+  color: #b30000;
 }
 
 .cerrar {
   position: absolute;
-  top: 15px;
-  right: 25px;
-  font-size: 28px;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
   font-weight: bold;
   color: #333;
   cursor: pointer;
@@ -166,19 +155,51 @@ footer {
   color: red;
 }
 
-/* -------------------
-   RESPONSIVE
-------------------- */
+.modal .opciones {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+.modal button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.3s ease;
+}
+
+.btn-si {
+  background: #228b22;
+  color: white;
+}
+
+.btn-si:hover {
+  background: #1a661a;
+}
+
+.btn-no {
+  background: #b30000;
+  color: white;
+}
+
+.btn-no:hover {
+  background: #800000;
+}
+
+/* ===== RESPONSIVE ===== */
 @media (max-width: 600px) {
   header h1 {
-    font-size: 1.2rem;
+    font-size: 1rem;
+  }
+
+  .logo-img {
+    width: 45px;
+    height: 45px;
   }
 
   .event-card {
-    padding: 15px;
-  }
-
-  .modal-content {
-    padding: 15px;
+    padding: 12px;
   }
 }
