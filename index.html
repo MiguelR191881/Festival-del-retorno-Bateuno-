@@ -8,32 +8,32 @@
 </head>
 <body>
 
-    <!-- HEADER CON LOGO -->
+    <!-- HEADER CON LOGO Y REDES -->
     <header>
-        <img src="logo.png" alt="Logo del Evento">
+        <div class="logo">
+            <img src="logo.png" alt="Logo del Evento">
+            <h1>Festival del Retorno - Bateuno</h1>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/share/19hPzTEQk9/" target="_blank">
+                <img src="facebook.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/festivalbateuno?igsh=MWlqcHNyOTl4eG5zdA==" target="_blank">
+                <img src="instagram.png" alt="Instagram">
+            </a>
+            <a href="mailto:festivalbateuno1@gmail.com">
+                <img src="gmail.png" alt="Correo electrónico">
+            </a>
+        </div>
     </header>
 
     <!-- CONTENEDOR DE EVENTOS -->
     <main>
-        <h1>Próximos Eventos</h1>
+        <h2>Próximos Eventos</h2>
         <div class="eventos-container" id="eventos">
             <!-- Los eventos se cargarán dinámicamente desde eventos.json -->
         </div>
     </main>
-
-
-  <div class="social-icons">
-    <a href="https://www.facebook.com/share/19hPzTEQk9/" target="_blank">
-      <img src="facebook.png" alt="Facebook">
-    </a>
-    <a href="https://www.instagram.com/festivalbateuno?igsh=MWlqcHNyOTl4eG5zdA==" target="_blank">
-      <img src="Instagram.png" alt="Instagram">
-    </a>
-    <a href="mailto:festivalbateuno1@gmail.com">
-      <img src="gmail.png" alt="Correo electrónico">
-    </a>
-  </div>
-</header>
 
     <!-- FOOTER -->
     <footer>
@@ -49,10 +49,11 @@
                 contenedor.innerHTML = "";
                 data.forEach(evento => {
                     const div = document.createElement('div');
-                    div.classList.add('event-card');
+                    div.classList.add('card');
                     div.innerHTML = `
-                        <h2>${evento.titulo}</h2>
+                        <h3>${evento.titulo}</h3>
                         <p><strong>Fecha:</strong> ${evento.fecha}</p>
+                        ${evento.Hora ? `<p><strong>Hora:</strong> ${evento.Hora}</p>` : ""}
                         <p>${evento.descripcion}</p>
                     `;
                     contenedor.appendChild(div);
