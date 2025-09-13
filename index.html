@@ -41,28 +41,6 @@
         <p>&copy; 2025 Eventos Especiales. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- SCRIPT PARA CARGAR EVENTOS -->
-    <script>
-        fetch('eventos.json')
-            .then(response => response.json())
-            .then(data => {
-                const contenedor = document.getElementById('eventos');
-                contenedor.innerHTML = "";
-                data.forEach(evento => {
-                    const div = document.createElement('div');
-                    div.classList.add('card');
-                    div.innerHTML = `
-                        <h3>${evento.titulo}</h3>
-                        <p><strong>Fecha:</strong> ${evento.fecha}</p>
-                        ${evento.Hora ? `<p><strong>Hora:</strong> ${evento.Hora}</p>` : ""}
-                        <p>${evento.descripcion}</p>
-                    `;
-                    contenedor.appendChild(div);
-                });
-            })
-            .catch(error => console.error("Error cargando los eventos:", error));
-        
-    </script>
 <!-- MODAL DE CONFIRMACIÓN -->
 <div id="modalAsistencia" class="modal">
   <div class="modal-content">
@@ -75,6 +53,62 @@
     </div>
   </div>
 </div>
+    
+    <!-- SCRIPT PARA CARGAR EVENTOS -->
+    <script>
+        // Variables del modal
+        const modal = document.getElementById("modalAsistencia");
+        const tituloEvento = document.getElementById("tituloEvento");
+        const cerrarModal = document.querySelector(".cerrar");
+        const btnSi = document.querySelector(".btn-si");
+        const btnNo = document.querySelector(".btn-no");
+
+        // Mostrar modal al hacer click en un evento
+        function abrirModal(evento) {
+            tituloEvento.textContent = evento.titulo;
+            modal.style.display = "flex";
+        }
+
+        // Cerrar modal
+        cerrarModal.onclick = () => modal.style.display = "none";
+        window.onclick = e => { if (e.target === modal) modal.style.display = "none"; }
+
+        // Acciones de los botones
+        btnSi.onclick = () => {
+            alert(`¡Genial! Has confirmado tu asistencia a: ${tituloEvento.textContent}`);
+            modal.style.display = "none";
+        };
+
+        btnNo.onclick = () => {
+            alert(`Lamentamos que no puedas asistir a: ${tituloEvento.textContent}`);
+            modal.style.display = "none";
+        };
+        
+
+        // Cargar eventos
+        fetch('eventos.json')
+            .then(response => response.json())
+            .then(data => {
+                const contenedor = document.getElementById('eventos');
+                contenedor.innerHTML = "";
+                data.forEach(evento => {
+                    const div = document.createElement('div');
+                    div.classList.add('event-card');
+                    div.innerHTML = `
+                        <h2>${evento.titulo}</h2>
+                        <p><strong>Fecha:</strong> ${evento.fecha}</p>
+                        <p>${evento.descripcion}</p>
+                    `;
+                    // Click → abrir modal
+                    div.onclick = () => abrirModal(evento);
+                    contenedor.appendChild(div);
+                });
+            })
+            .catch(error => console.error("Error cargando los eventos:", error));
+    </script>
+        
+    </script>
+
 
 </body>
 </html>
