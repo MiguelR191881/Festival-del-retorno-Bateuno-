@@ -17,20 +17,14 @@ header {
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.logo img {
-  height: 180px;
+header .logo {
+  height: 80px;
   width: auto;
   border-radius: 10px;
   transition: transform 0.3s ease;
 }
 
-.logo img:hover {
+header .logo:hover {
   transform: scale(1.05);
 }
 
@@ -56,11 +50,11 @@ header {
 }
 
 /* Título */
-main h2 {
+main h1 {
   text-align: center;
   margin: 20px 0;
   color: #b30000;
-  font-size: 1.8em;
+  font-size: 2em;
 }
 
 /* Contenedor de eventos */
@@ -74,26 +68,59 @@ main h2 {
 }
 
 /* Tarjetas */
-.card {
+.event-card {
   background: white;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 3px 12px rgba(0,0,0,0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
 }
 
-.card:hover {
+.event-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 18px rgba(0,0,0,0.2);
 }
 
-.card h3 {
+.event-card h2 {
   color: #e63946;
   margin-top: 0;
 }
 
-.card p {
+.event-card p {
   margin: 5px 0;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  text-align: center;
+}
+
+.modal-content button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  background: #e63946;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background: #b30000;
 }
 
 /* Footer */
@@ -105,6 +132,7 @@ footer {
   margin-top: 30px;
   font-size: 0.9em;
 }
+
 
 /* --- MODAL --- */
 .modal {
